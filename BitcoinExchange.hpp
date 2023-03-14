@@ -7,7 +7,7 @@
 # include <map>
 # include <iostream>
 # include "fstream"
-# include <string>
+# include <cstring>
 class BitcoinExchange {
     private: 
         // std::map<std::string,int> values;
@@ -16,6 +16,8 @@ class BitcoinExchange {
         std::string inputFile;
     public:
         BitcoinExchange(int ac,char **av);
+        BitcoinExchange(const BitcoinExchange &x);
+        BitcoinExchange& operator = (const BitcoinExchange &x);
         ~BitcoinExchange();
     private:
         void insertData();
