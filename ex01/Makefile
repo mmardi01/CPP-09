@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmardi <mmardi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/14 15:46:15 by mmardi            #+#    #+#              #
-#    Updated: 2023/03/17 14:48:41 by mmardi           ###   ########.fr        #
+#    Created: 2023/03/17 14:48:25 by mmardi            #+#    #+#              #
+#    Updated: 2023/03/17 15:46:50 by mmardi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = RPN
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-HEADER = BitcoinExchange.hpp
+HEADER = RPN.hpp
 
-SRC = BitcoinExchange.cpp main.cpp
+SRC = RPN.cpp main.cpp
 
 OBJ =  $(SRC:.cpp=.o)
 

@@ -14,6 +14,7 @@ class BitcoinExchange {
         std::string dataFile;
         std::string inputF;
     public:
+        BitcoinExchange();
         BitcoinExchange(int ac,char **av);
         BitcoinExchange(const BitcoinExchange &x);
         BitcoinExchange& operator = (const BitcoinExchange &x);

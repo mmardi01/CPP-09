@@ -1,6 +1,9 @@
 
 # include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange()  { 
+}
+
 BitcoinExchange::BitcoinExchange(int ac, char **av) : dataFile("./data.csv") {
     switch (ac){
         case 2:
@@ -18,6 +21,8 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &x)  {
     dataFile  = x.dataFile;
     inputF = x.inputF;
 }
+
+
 BitcoinExchange& BitcoinExchange::operator = (const BitcoinExchange &x) {
     exchanges = x.exchanges;
     dataFile = x.dataFile;
