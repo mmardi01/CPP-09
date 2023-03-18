@@ -6,7 +6,7 @@
 /*   By: mmardi <mmardi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:10:18 by mmardi            #+#    #+#             */
-/*   Updated: 2023/03/18 01:11:02 by mmardi           ###   ########.fr       */
+/*   Updated: 2023/03/18 01:19:16 by mmardi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,17 @@ RPN::RPN(int ac, char **av) {
     if (checkArguments(av[1]))
         throw std::runtime_error("ERROR: bad input.");
     insertArguments(av[1]);
+}
+
+RPN::RPN(const RPN& x) {
+   *this = x;
+}
+
+RPN& RPN::operator = (const RPN &x)
+{
+   arguments = x.arguments;
+   values = x.values;
+   return  *this;
 }
 
 RPN::~RPN(){};
