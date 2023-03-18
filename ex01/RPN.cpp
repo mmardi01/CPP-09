@@ -6,7 +6,7 @@
 /*   By: mmardi <mmardi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:10:18 by mmardi            #+#    #+#             */
-/*   Updated: 2023/03/17 19:26:16 by mmardi           ###   ########.fr       */
+/*   Updated: 2023/03/18 01:11:02 by mmardi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,46 @@ bool RPN::checkArguments(std::string arg) {
     return false;   
 }
 
+void RPN::operation() {
+    while(!arguments.empty()) {
+        if (isdigit(arguments.top()))
+            values.push(arguments.top() - '0');
+        else if (arguments.top() == '+' && values.size() >= 2) {
+            int a = values.top();
+            values.pop();
+            int b = values.top();
+            values.pop();
+            values.push(b + a);
+        }
+        else if (arguments.top() == '-' && values.size() >= 2) {
+            int a = values.top();
+            values.pop();
+            int b = values.top();
+            values.pop();
+            values.push(b - a);
+        }
+        else if (arguments.top() == '/' && values.size() >= 2)  {
+            int a = values.top();
+            values.pop();
+            int b = values.top();
+            values.pop();
+            values.push(b / a);
+        }
+        else if (arguments.top() == '*' && values.size() >= 2) {
+            int a = values.top();
+            values.pop();
+            int b = values.top();
+            values.pop();
+            values.push(b * a);
+        }
+        else {
+            throw std::runtime_error("ERROR: bad input.");
+        }
+        arguments.pop();
+    }
+    std::cout << values.top() << std::endl;
+}
+
 void RPN::insertArguments(std::string arg) {
  
     char *s = strtok((char *)arg.c_str(), " ");
@@ -38,13 +78,10 @@ void RPN::insertArguments(std::string arg) {
     while(tmp.size() > 0) {
         if (tmp.top().size() > 1)
             throw std::runtime_error("ERROR: bad input.");
-        arguments.push(tmp.top());
+        arguments.push(tmp.top()[0]);
         tmp.pop();
     }
-     while(arguments.size() > 0) {
-        std::cout << arguments.top() << std::endl;
-        arguments.pop();
-    }
+    operation();
 }
 
 RPN::RPN(int ac, char **av) {
