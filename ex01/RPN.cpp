@@ -6,7 +6,7 @@
 /*   By: mmardi <mmardi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:10:18 by mmardi            #+#    #+#             */
-/*   Updated: 2023/03/18 01:19:16 by mmardi           ###   ########.fr       */
+/*   Updated: 2023/03/18 12:41:13 by mmardi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void RPN::operation() {
         }
         arguments.pop();
     }
+    if (values.size() != 1)
+        throw std::runtime_error("ERROR: bad input.");
     std::cout << values.top() << std::endl;
 }
 
