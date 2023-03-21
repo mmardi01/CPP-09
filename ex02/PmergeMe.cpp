@@ -1,6 +1,17 @@
 
 # include "PmergeMe.hpp"
 
+PmergeMe::PmergeMe() {};
+
+PmergeMe::PmergeMe(const PmergeMe &x) : vec(x.vec), deq(x.deq){
+}
+
+PmergeMe& PmergeMe::operator = (const PmergeMe &x) {
+    vec = x.vec;
+    deq = x.deq;
+    return *this;
+}
+
 bool PmergeMe::checkArg(std::string arg) {
     for (size_t i = 0; i < arg.length(); i++) {
         if (!isdigit(arg[i]))

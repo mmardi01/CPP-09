@@ -15,7 +15,10 @@ class PmergeMe {
         std::vector<int> vec;
         std::deque<int> deq;
     public:
-        PmergeMe(int ac,char **av);
+        PmergeMe();
+        PmergeMe(int ac, char **av);
+        PmergeMe(const PmergeMe& x);
+        PmergeMe& operator = (const PmergeMe& x);
         ~PmergeMe();
     private:
         bool checkArg(std::string arg);
