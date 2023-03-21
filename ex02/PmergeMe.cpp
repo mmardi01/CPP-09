@@ -47,7 +47,7 @@ void PmergeMe::dev_merge(T& arr, int l,int r) {
 PmergeMe::PmergeMe(int ac,char **av) {
     timeval start;
     timeval end;
-    double t_spent;
+    float t_spent,t_spent2;
     if (ac <= 2)
         throw std::runtime_error("ERROR: Too few arguments.");
     int i = 1;
@@ -62,8 +62,7 @@ PmergeMe::PmergeMe(int ac,char **av) {
         i++;
     }
     std::cout << "Before: ";
-    for (size_t i = 0; i < vec.size(); i++)
-    {
+    for (size_t i = 0; i < vec.size(); i++) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
@@ -71,13 +70,17 @@ PmergeMe::PmergeMe(int ac,char **av) {
     dev_merge(vec,0,vec.size()-1);
     gettimeofday(&end,NULL);
     t_spent = ((end.tv_sec * 1000000) + end.tv_usec) - ((start.tv_sec * 1000000) + start.tv_usec);
+    gettimeofday(&start,NULL);
+    dev_merge(deq,0,deq.size()-1);
+    gettimeofday(&end,NULL);
+    t_spent2 = ((end.tv_sec * 1000000) + end.tv_usec) - ((start.tv_sec * 1000000) + start.tv_usec);
     std::cout << "After: ";
-    for (size_t i = 0; i < vec.size(); i++)
-    {
+    for (size_t i = 0; i < vec.size(); i++) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector  : " << t_spent << " us\n";
+    std::cout << "Time to process a range of " << vec.size() << " elements with std::deque  : " << t_spent2 << " us\n";
 }
 
 PmergeMe::~PmergeMe() {

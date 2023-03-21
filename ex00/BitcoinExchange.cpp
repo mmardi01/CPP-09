@@ -44,12 +44,6 @@ void BitcoinExchange::insertData() {
         float v = std::atof(value);
         exchanges.insert(std::make_pair(date,v));
     }
-    // std::map<std::string,float>::iterator it = exchanges.begin();
-    // while (it != exchanges.end())
-    // {
-    //     std::cout << it->first << "| |" << it->second << std::endl; 
-    //     it++;
-    // } 
 }
 
 
