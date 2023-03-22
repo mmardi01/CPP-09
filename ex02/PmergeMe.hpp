@@ -8,7 +8,7 @@
 # include <deque>
 # include <stdlib.h>
 #include <sys/time.h>
-
+# include "fstream"
 
 class PmergeMe {
     private:

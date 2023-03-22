@@ -10,7 +10,7 @@
 # include <cstring>
 class BitcoinExchange {
     private: 
-        std::map<std::string,float, std::greater<std::string> > exchanges;
+        std::map<std::string,double, std::greater<std::string> > exchanges;
         std::string dataFile;
         std::string inputF;
     public:
@@ -22,7 +22,7 @@ class BitcoinExchange {
     private:
         void insertData();
         void PrintResults();
-        bool checkLine(std::string line,int t);
+        bool checkLine(std::string& line,int t);
         bool checkDate(std::string date);
         bool checkYearMonthDay(std::string _year, std::string _month, std::string _day);
         bool checkValue(std::string val);

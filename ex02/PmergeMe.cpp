@@ -84,6 +84,7 @@ PmergeMe::PmergeMe(int ac,char **av) {
     gettimeofday(&start,NULL);
     dev_merge(deq,0,deq.size()-1);
     gettimeofday(&end,NULL);
+    std::cout << std::setprecision(10);
     t_spent2 = ((end.tv_sec * 1000000) + end.tv_usec) - ((start.tv_sec * 1000000) + start.tv_usec);
     std::cout << "After: ";
     for (size_t i = 0; i < vec.size(); i++) {

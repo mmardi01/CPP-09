@@ -6,7 +6,7 @@
 /*   By: mmardi <mmardi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:10:18 by mmardi            #+#    #+#             */
-/*   Updated: 2023/03/18 12:41:13 by mmardi           ###   ########.fr       */
+/*   Updated: 2023/03/22 16:57:23 by mmardi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void RPN::operation() {
             values.pop();
             int b = values.top();
             values.pop();
+            if (a == 0)
+                throw std::runtime_error("ERROR: can't devide on 0.");
             values.push(b / a);
         }
         else if (arguments.top() == '*' && values.size() >= 2) {
